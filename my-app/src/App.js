@@ -1,24 +1,13 @@
-import React from "react";
+import logo from './logo.svg';
+import './App.css';
+import StatefulGreeting from './components/StatefulGreeting';
 
-class StatefulGreeting extends React.Component{
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            introduction: "Hello!",
-            buttonText: "Exit",
-        };
-    }
-
-
-    render() {
-        return (
-            <div>
-                <h1>{this.state.introduction} {this.props.greeting}</h1>
-                <button>{this.state.buttonText}</button>
-            </div>
-        )
-    }
+function App() {
+  return (
+    <div className="App">
+      <StatefulGreeting greeting="I'm a stateful class component!" name="Mike"/>
+    </div>
+  );
 }
 
-export default StatefulGreeting;
+export default App;
