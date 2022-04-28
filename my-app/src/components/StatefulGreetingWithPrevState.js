@@ -7,6 +7,7 @@ class StatefulGreeting extends React.Component{
         this.state = {
             introduction: "Hello!",
             buttonText: "Exit",
+            count: 0
         };
     }
 
@@ -22,14 +23,34 @@ class StatefulGreeting extends React.Component{
     console.log(this.state.buttonText);
   }
     
+  increment() {
+    this.setState({
+        count: this.state.count + 1
+    })
+    console.log(this.state.count)
+}
+
+incrementFive(){
+    this.increment()
+    this.increment()
+    this.increment()
+    this.increment()
+    this.increment()
+}
+
     render() {
         return (
             <div>
-                <h1>{this.state.introduction} {this.props.greeting}</h1>
+                <h1>{this.state.introduction} {this.props.greeting}
+                </h1>
                 <button onClick={() => this.handleClick()}>
                     {this.state.buttonText}
-                    </button>
-            </div>
+                </button>
+                <button onClick={() => this.incrementFive()}>
+                    Increment five
+                </button>
+        <p>You've clicked {this.state.count} times</p>                
+         </div>
         )
     }
 }
